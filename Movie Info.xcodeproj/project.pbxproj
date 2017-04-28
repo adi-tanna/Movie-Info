@@ -7,9 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F700AE9A1EB2EF9A008DC85C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F700AE981EB2EF9A008DC85C /* Main.storyboard */; };
 		F700AE9C1EB2EF9A008DC85C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F700AE9B1EB2EF9A008DC85C /* Assets.xcassets */; };
-		F700AE9F1EB2EF9A008DC85C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F700AE9D1EB2EF9A008DC85C /* LaunchScreen.storyboard */; };
 		F700AEF21EB2F012008DC85C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F700AEAB1EB2F011008DC85C /* AppDelegate.swift */; };
 		F700AEF31EB2F012008DC85C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F700AEAC1EB2F011008DC85C /* DetailViewController.swift */; };
 		F700AEF41EB2F012008DC85C /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F700AEAD1EB2F011008DC85C /* MasterViewController.swift */; };
@@ -39,13 +37,13 @@
 		F700AF111EB2F012008DC85C /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = F700AEEB1EB2F012008DC85C /* TPKeyboardAvoidingScrollView.m */; };
 		F700AF121EB2F012008DC85C /* TPKeyboardAvoidingTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = F700AEED1EB2F012008DC85C /* TPKeyboardAvoidingTableView.m */; };
 		F700AF131EB2F012008DC85C /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F700AEEF1EB2F012008DC85C /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
+		F747BE0F1EB3C48D00BBBD31 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F747BE0D1EB3C48D00BBBD31 /* LaunchScreen.storyboard */; };
+		F747BE101EB3C48D00BBBD31 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F747BE0E1EB3C48D00BBBD31 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F700AE8F1EB2EF9A008DC85C /* Movie Info.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Movie Info.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F700AE991EB2EF9A008DC85C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F700AE9B1EB2EF9A008DC85C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F700AE9E1EB2EF9A008DC85C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F700AEA01EB2EF9A008DC85C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F700AEA61EB2EFC3008DC85C /* Movie Info-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Movie Info-Bridging-Header.h"; sourceTree = "<group>"; };
 		F700AEAB1EB2F011008DC85C /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -101,6 +99,8 @@
 		F700AEED1EB2F012008DC85C /* TPKeyboardAvoidingTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingTableView.m; sourceTree = "<group>"; };
 		F700AEEE1EB2F012008DC85C /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
 		F700AEEF1EB2F012008DC85C /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
+		F747BE0D1EB3C48D00BBBD31 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F747BE0E1EB3C48D00BBBD31 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,10 +134,9 @@
 			isa = PBXGroup;
 			children = (
 				F700AEA61EB2EFC3008DC85C /* Movie Info-Bridging-Header.h */,
+				F747BE0C1EB3C48D00BBBD31 /* View */,
 				F700AEAA1EB2F011008DC85C /* Controller */,
 				F700AEAE1EB2F011008DC85C /* CustomClasses */,
-				F700AEF01EB2F012008DC85C /* Modal */,
-				F700AEF11EB2F012008DC85C /* View */,
 				F700AE9B1EB2EF9A008DC85C /* Assets.xcassets */,
 				F700AEA01EB2EF9A008DC85C /* Info.plist */,
 			);
@@ -243,18 +242,11 @@
 			path = TPKeyboardAvoiding;
 			sourceTree = "<group>";
 		};
-		F700AEF01EB2F012008DC85C /* Modal */ = {
+		F747BE0C1EB3C48D00BBBD31 /* View */ = {
 			isa = PBXGroup;
 			children = (
-			);
-			path = Modal;
-			sourceTree = "<group>";
-		};
-		F700AEF11EB2F012008DC85C /* View */ = {
-			isa = PBXGroup;
-			children = (
-				F700AE981EB2EF9A008DC85C /* Main.storyboard */,
-				F700AE9D1EB2EF9A008DC85C /* LaunchScreen.storyboard */,
+				F747BE0D1EB3C48D00BBBD31 /* LaunchScreen.storyboard */,
+				F747BE0E1EB3C48D00BBBD31 /* Main.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -320,9 +312,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F700AE9F1EB2EF9A008DC85C /* LaunchScreen.storyboard in Resources */,
+				F747BE101EB3C48D00BBBD31 /* Main.storyboard in Resources */,
 				F700AE9C1EB2EF9A008DC85C /* Assets.xcassets in Resources */,
-				F700AE9A1EB2EF9A008DC85C /* Main.storyboard in Resources */,
+				F747BE0F1EB3C48D00BBBD31 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,27 +358,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		F700AE981EB2EF9A008DC85C /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F700AE991EB2EF9A008DC85C /* Base */,
-			);
-			name = Main.storyboard;
-			path = ..;
-			sourceTree = "<group>";
-		};
-		F700AE9D1EB2EF9A008DC85C /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F700AE9E1EB2EF9A008DC85C /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			path = ..;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		F700AEA11EB2EF9A008DC85C /* Debug */ = {
