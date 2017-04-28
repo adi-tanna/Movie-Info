@@ -1,5 +1,3 @@
-# iOS Developer Exercise
-
 ## Summary
 Create a master-detail application that shows the top movies currently playing in US movie theaters.  The application needs to display a table of top movies with descriptions for each movie (title, release date, genre, image).  When a user clicks a movie row, the application will navigate to a details page showing additional details on the selected movie.
 
