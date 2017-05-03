@@ -110,6 +110,32 @@ extension String {
     }
 }
 
+extension UIImageView {
+    public func imageFromServerURL(urlString: String) {
+        
+        if let cachedVersion = getAppDelegate().cache.object(forKey: urlString as AnyObject) as? UIImage {
+            
+            let image = cachedVersion
+            self.image = image
+        
+        } else {
+            URLSession.shared.dataTask(with: NSURL(string: urlString)! as URL, completionHandler: { (data, response, error) -> Void in
+                
+                if error != nil {
+                    print(error ?? "Error")
+                    return
+                }
+                DispatchQueue.main.async(execute: { () -> Void in
+                    let image = UIImage(data: data!)
+                    getAppDelegate().cache.setObject(image!, forKey: urlString as AnyObject)
+                    
+                    self.image = image
+                })
+            }).resume()
+        }
+    }
+}
+
 //MARK: Global App Delegate
 func getAppDelegate()  -> AppDelegate {
     return UIApplication.shared.delegate as! AppDelegate

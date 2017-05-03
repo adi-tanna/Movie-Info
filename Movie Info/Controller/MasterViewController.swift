@@ -16,6 +16,8 @@ class MasterViewController: UITableViewController {
 
     var selectedIndex = 0
     
+    var vwSearchView : UIView?
+    
     //MARK: - ViewController LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,8 +35,11 @@ class MasterViewController: UITableViewController {
         
         imgView.contentMode = .scaleAspectFill
         
-        self.tableView.backgroundView = imgView
+        imgView.frame = self.tableView.frame
         
+        self.tableView.backgroundView = imgView
+     
+        perform(#selector(addingSearchView), with: nil, afterDelay: 0.1)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -47,7 +52,37 @@ class MasterViewController: UITableViewController {
         }catch{
             print("could not start reachability notifier")
         }
-        callWSToGetMovies()
+    }
+    
+    func addingSearchView()  {
+        
+        let alert = UIAlertController(title: "", message: "Search Movie", preferredStyle: .alert)
+        
+        alert.addTextField { (textfield) in
+            textfield.placeholder = "Search your favourite movie here"
+            textfield.textAlignment = .center
+        }
+        let searchAction = UIAlertAction(title: "Search", style: .default) { ac in
+            
+            let searchText = alert.textFields?[0]
+            
+            if (searchText?.text?.isEmpty) == false{
+                self.callWSToGetMovies(strSearchText: (searchText?.text)!)
+            }else{
+                let alert2 = UIAlertController(title: "", message: "Please provide input for search", preferredStyle: .alert)
+                
+                let OkAction = UIAlertAction(title: "Search", style: .default) { ac in
+                    
+                }
+                alert2.addAction(OkAction)
+                
+                self.present(alert2, animated: true, completion: nil)
+            }
+        }
+        
+        alert.addAction(searchAction)
+        
+        present(alert, animated: true, completion: nil)
     }
 
     // MARK: - Table View
@@ -68,7 +103,7 @@ class MasterViewController: UITableViewController {
             if var imgurl = (arrMovies[indexPath.row] as? [String:Any])?["poster_path"] as? String{
                 imgurl = "https://image.tmdb.org/t/p/original/" + imgurl
                 
-                cell?.imgMovieThumb.sd_setImage(with: URL(string: imgurl), placeholderImage: UIImage(named: "default-placeholder"))
+                cell?.imgMovieThumb.imageFromServerURL(urlString: imgurl)
                 
                 cell?.imgMovieThumb.contentMode = .scaleAspectFit
             }
@@ -128,15 +163,20 @@ class MasterViewController: UITableViewController {
         }
     }
     
+    @IBAction func btnSearchTapped(_ sender: UIBarButtonItem) {
+        addingSearchView()
+    }
     //MARK: - Calling WebServices
-    func callWSToGetMovies(){
+    func callWSToGetMovies(strSearchText: String){
         
         if Reachability.isConnectedToNetwork(){
-            let strURL = "https://api.themoviedb.org/3/movie/top_rated?api_key=54085c1785e6ed39c08fbc4a7c4aa5de"
+        
+            let strURL = "https://api.themoviedb.org/3/search/movie?api_key=54085c1785e6ed39c08fbc4a7c4aa5de&language=en-US&query=\(strSearchText)&page=1&include_adult=false"
             
-            callWebService(strURL, parameters: ["":"" as AnyObject], methodHttp: .get, completion: { (response) in
+            callWebService(strURL, parameters: nil, methodHttp: .get, completion: { (response) in
                 
                 if let arrResult = (response as? [String:Any])?["results"] as? [Any]{
+                    
                     self.arrMovies = arrResult
                    
                     DispatchQueue.main.async {
@@ -163,7 +203,7 @@ class MasterViewController: UITableViewController {
             } else {
                 print("Reachable via Cellular")
             }
-            self.callWSToGetMovies()
+            self.callWSToGetMovies(strSearchText: "")
         }else {
             self.showAlertWithErrorMsg(alertMsg: "Looks like you are not connected to Internet")
         }

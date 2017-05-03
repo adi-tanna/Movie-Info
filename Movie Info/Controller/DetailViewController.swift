@@ -62,10 +62,11 @@ class DetailViewController: UIViewController {
         if var str_url = dictMovieDetails["poster_path"] as? String{
             
             str_url = "https://image.tmdb.org/t/p/original/" + str_url
+        
+            imgMovieThumb.image = UIImage(named: "default-placeholder")
             
-            let url = URL(string: str_url)
-            
-            imgMovieThumb.sd_setImage(with: url, placeholderImage: UIImage(named: "default-placeholder"))
+            imgMovieThumb.imageFromServerURL(urlString: str_url)
+        
         }
         
         if let str_description = dictMovieDetails["overview"] as? String{
@@ -116,6 +117,7 @@ class DetailViewController: UIViewController {
             lblBudget.text = "Budget: " + "\(str_budget)"
         }
         
+        print (lblBudget.frame)
         
     }
     
